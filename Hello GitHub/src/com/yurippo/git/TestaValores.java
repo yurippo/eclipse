@@ -4,27 +4,29 @@ public class TestaValores {
 	
 	public static void main(String[] args) {
 		
-		int primeiro = 5;
+		Conta conta = new Conta(1337 , 24226);
 		
-		int segundo = 7;
+		// conta está inconssistente 
 		
-		segundo = primeiro;
+		//conta.setAgencia(-50);
 		
-		primeiro = 10;
+		//conta.setNumero(-330);
 		
-		// quanto vale o segundo?
+		System.out.println(conta.getAgencia());
 		
-		System.out.println(segundo);
+		System.out.println(conta.getNumero());
 		
-		String saudacao = "Olá, meu nome é ";
-		String nome = "Rômulo ";
-		String continuacao = "e minha idade é ";
-		int idade = 100;
+		Conta conta2 = new Conta(1337, 16549);
+		
+		Conta conta3 = new Conta(2112, 14660);
+		
+		System.out.println(Conta.getTotal());
+		
+		//usando o static eu digo que esse metodo é da classe
+		//quando vou chamar ele eu uso o nome da classe não do objeto
+			 
 		
 		
-		System.out.println(saudacao+nome+continuacao+idade);
-		
-	
 	}
 
 }

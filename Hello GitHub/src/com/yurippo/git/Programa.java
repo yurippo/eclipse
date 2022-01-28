@@ -5,17 +5,20 @@ public class Programa {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-//		int contador = 0;
-//        while(contador <= 10) {
-//            System.out.println(contador);
-//            contador++;
-//        }
+		Pessoa p = new Pessoa();
 		
-		for(int contador = 0; contador <= 10; contador++){
-			
-			 System.out.println(contador);
-			
-		}        
+		 
+		Endereco endereco = new Endereco();
+		
+        p.nome = "Paulo";
+        
+        p.endereco = endereco;
+        
+        endereco.logradouro = "Avenida XYZ";
+        
+        System.out.println(endereco.logradouro);
+        
+        System.out.println(p.endereco.logradouro);
 
 	}
 
