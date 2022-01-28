@@ -1,8 +1,8 @@
 package com.yurippo.git;
 
-public class TestaBanco {
+//public class TestaBanco {
 
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
 		Cliente paulo = new Cliente();
@@ -30,4 +30,4 @@ public class TestaBanco {
 
 	}
 
-}
+}*/
