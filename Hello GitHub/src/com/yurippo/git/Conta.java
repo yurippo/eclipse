@@ -1,140 +1,49 @@
 package com.yurippo.git;
+/**
+ * 
+ * @author yurippo
+ * @version 1.0
+ */
+
+//uma anotacao eh uma configuração no seu codigo Java
 
 
-public class Conta {
+public abstract class Conta {
 	
-	private double saldo;
-	private int agencia;
-	private int numero;
-	private Cliente titular;
-	private static int total; 
-	//esse static quer dizer que esse
-	//total é da classe não de cada objeto como os outros atributos
-	
-	//esse é o exemplo de um construtor padrão
-	// rotina de inicialização diferente de um metodo 
-	// que tem retorno void, return
-	//ele só é executado uma unica vez quando agente constroe 
-	//o objeto so executa com um new e o new cria um novo objeto
+	//criei a anotação agora falta a biblioteca
+	//para interpretar a anotação e verificar se e valido ou nao
+	//anotacoes servem para fugir dos xmls complexos
+	//para simplificar as configurações no nosso codigo
+	//para dar uma dica para o nosso compilador
+	//e ate facil escrever a anotação falta interpretar
+	//veremos isso mais a fundo no curso de reflexion
 	
 	
-	public Conta(int agencia, int numero) {
-		Conta.total++; //aqui usamos Conta ao invés do this 
-		//pq é da calsse conta não do objeto
-		// a partir do moemnto que uso static é atributo global da classe não
-		// de cada objeto instanciado como o this se refere
-		
-		System.out.println("o total de contas é " + Conta.total);
-		
-		this.agencia = agencia;
-		this.numero = numero;
-		
-		System.out.println("estou criando conta"+ this.numero);
-	}
-	
-	
-	public void setTitular(Cliente titular) {
-		
-		this.titular = titular;
-		
-	}
-	
-	public Cliente getTitular() {
-		return this.titular;
-	}
-	
-	//esse método tbm é chamado getter
-	public double getSaldo() {
-		
-		return this.saldo;
-		
-	}		
-	
-	public int getNumero() {
-		
-		return this.numero;
-	}
-	
-	public void setNumero(int numero) {
-		
-		if(numero <= 0) {
-			
-			System.out.println("nao pode valor menor igual a 0");
-			return;			
-		}
-		
-		this.numero = numero;
-		
-	}
-	
-	public int getAgencia() {
-	
-		return this.agencia;
-	}
-	
-	public void setAgencia(int agencia) {
-		
-		if(agencia <= 0) {
-			
-			System.out.println("nao pode valor menor igual a 0");
-			return;			
-		}
-		this.agencia = agencia;
-	}
-	
-	
+	@DoublePositivo
+	protected double saldo;
+	private String titular;
+	private String banco;
+	private String agencia;
+	private String numero;
 	
 	public void deposita(double valor) {
-		
-		this.saldo += valor; //ou this.saldo + valor;
-		 
+		this.saldo += valor;
 	}
 	
-	public boolean saca(double valor) {
+	 public double getSaldo() {
+		return this.saldo;
+	}
+	 
 	
-		if (this.saldo >= valor) {
-			
-			this.saldo -= valor; // ou this.saldo - valor;
-			
-			return true;
-			
-		} else {
-			
-			return false;
-		}
+	 public String getTitular() {
+		return this.titular;
 	}
+	 
+	 public String getBanco() {
+		return this.banco;
+	}
+	 
+	 
 	
-	public boolean transfere(double valor, Conta destino ) {
-		
-		if (this.saldo >= valor) {
-			this.saldo -= valor;
-			destino.deposita(valor);
-			return true;
-		} else {
-			return false;
-		}
-	}
-		
-	public boolean transfereComSaca (double valor, Conta destino ) {
-		
-		if (this.saldo >= valor) {
-			this.saca(valor);
-			destino.deposita(valor);
-			return true;
-		} else {
-			return false;
-		}	
-				
-	}
 	
-	 public static int getTotal() { 
-	//usando o static eu digo que esse metodo é da classe
-    //quando vou chamar ele eu uso o nome da classe não do objeto
-		 				 
-		 return Conta.total;		 
-		
-	}
-
 }
-
-
